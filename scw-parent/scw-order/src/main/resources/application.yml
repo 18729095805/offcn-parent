@@ -1,0 +1,52 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: SCW-ORDER
+
+  #数据源的配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/atcrowdfunding_1009?serverTimezone=GMT%2B8&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat #开启过滤器监控
+
+    #整合redis
+  redis:
+    host: 192.168.188.129
+    port: 6379
+
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:com/offcn/order/mapper/*.xml
+
+#注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true   #使用id地址去找eureka
+
+#日志
+logging:
+  level:
+    com:
+      offcn: info
+      #指定log输出位置
+  file:
+    path: E:\\java4_log\order.log
+
+#oss配置
+oss:
+  endpoint: http://oss-cn-beijing.aliyuncs.com
+  bucketDomain: 506a18729095805.oss-cn-beijing.aliyuncs.com
+  accessKeyId: LTAI4GC1FwrRvZbQ5VmwRgU4
+  accessKeySecret: OQloQbzxeNWw4zpJ37ahWVfj5djlR1
+  bucketName: 506a18729095805
+
+
+
