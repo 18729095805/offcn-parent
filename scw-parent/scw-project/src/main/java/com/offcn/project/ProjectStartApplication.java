@@ -11,5 +11,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class ProjectStartApplication {
     public static void main(String[] args) {
         SpringApplication.run(ProjectStartApplication.class);
+        System.out.println("测试");
     }
 }
